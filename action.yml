@@ -41,6 +41,9 @@ inputs:
     description: 'Where will the report from test be saved'
     required: true
     default: 'reports'
+  start:
+    description: 'Optional start command for a server'
+    required: false
 
 runs:
   using: 'composite'
@@ -58,3 +61,4 @@ runs:
         SCREEN_WIDTH: ${{ inputs.screen_width }}
         ROBOT_TESTS_DIR: ${{ inputs.robot_tests_dir }}
         ROBOT_REPORTS_DIR: ${{ inputs.robot_reports_dir }}
+        START_COMMAND: ${{ inputs.start }}

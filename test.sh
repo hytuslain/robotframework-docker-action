@@ -1,3 +1,9 @@
+# Start server, if any
+if [ x"${START_COMMAND}" != x"" ]; then
+  ${START_COMMAND} &
+  SERVER_PID=$!
+fi
+
 # Create reports folder
 REPORTS_DIR=$(pwd)/$ROBOT_REPORTS_DIR
 TESTS_DIR=$(pwd)/$ROBOT_TESTS_DIR
@@ -12,3 +18,8 @@ docker run --shm-size=$ALLOWED_SHARED_MEMORY \
   -v $TESTS_DIR:/opt/robotframework/tests:Z \
   --user $(id -u):$(id -g) \
   ppodgorsek/robot-framework:latest
+
+# Kill server if necessary
+if [ x"${SERVER_PID}" != x"" ]; then
+  kill $SERVER_PID
+fi
