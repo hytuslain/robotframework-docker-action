@@ -1,5 +1,5 @@
-name: 'Robot Framework'
-description: 'Run Robot Framework tests'
+name: 'HL-specific feature fork. Robot Framework'
+description: 'HL-specific feature fork. Run Robot Framework tests'
 inputs:
   allowed_shared_memory:
     description: 'Shared memory that Docker container is allowed to use'
